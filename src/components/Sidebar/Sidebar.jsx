@@ -28,17 +28,12 @@ const SidebarContainer = styled.div`
   height: 90vh;
   left: 50%;
   transform: translateX(-50%);
-  background-color: ${(props) =>
-    props.color === "dark"
-      ? "var(--color-sidebar-background-dark-default)"
-      : "var(--color-sidebar-background-light-default)"};
+  background-color: ${({ color }) =>
+    `var(--color-sidebar-background-${color}-default)`};
   border-radius: 16px;
   backdrop-filter: blur(12px);
   border: 4px solid
-    ${(props) =>
-      props.color === "dark"
-        ? "var(--color-sidebar-background-dark-hover)"
-        : "var(--color-sidebar-background-light-hover)"};
+    ${({ color }) => `var(--color-sidebar-background-${color}-hover)`};
 
   width: 60px;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -74,22 +69,14 @@ const SidebarHeader = styled.div`
   span {
     font-size: 1.5rem;
     font-weight: 600;
-    color: ${(props) =>
-      props.color === "dark"
-        ? "var(--color-text-logo-dark-default)"
-        : "var(--color-text-logo-light-default)"};
+    color: ${({ color }) => `var(--color-text-logo-${color}-default)`};
   }
 
   div {
     cursor: pointer;
-    color: ${(props) =>
-      props.color === "dark"
-        ? "var(--color-text-dark-default)"
-        : "var(--color-text-light-default)"};
-    background-color: ${(props) =>
-      props.color === "dark"
-        ? "var(--color-button-background-dark-default)"
-        : "var(--color-button-background-light-default)"};
+    color: ${({ color }) => `var(--color-text-${color}-default)`};
+    background-color: ${({ color }) =>
+      `var(--color-button-background-${color}-default)`};
     width: 24px;
     height: 24px;
     border-radius: 12px;
@@ -109,10 +96,8 @@ const SidebarHeader = styled.div`
     gap: 10px;
     div {
       right: -12px;
-      background-color: ${(props) =>
-        props.color === "dark"
-          ? "var(--color-button-background-dark-active)"
-          : "var(--color-button-background-light-active)"};
+      background-color: ${({ color }) =>
+        `var(--color-button-background-${color}-active)`};
       svg {
         transform: rotate(0deg);
       }
@@ -136,34 +121,19 @@ const RoutesContainer = styled.div`
     padding: 12px;
     cursor: pointer;
     border-radius: 8px;
-    color: ${(props) =>
-      props.color === "dark"
-        ? "var(--color-text-dark-default)"
-        : "var(--color-text-light-default)"};
-    background-color: ${(props) =>
-      props.color === "dark"
-        ? "var(--color-sidebar-background-dark-default)"
-        : "var(--color-sidebar-background-light-default)"};
+    color: ${({ color }) => `var(--color-text-${color}-default)`};
+    background-color: ${({ color }) =>
+      `var(--color-sidebar-background-${color}-default)`};
     &:hover {
-      color: ${(props) =>
-        props.color === "dark"
-          ? "var(--color-text-dark-hover)"
-          : "var(--color-text-light-hover)"};
-      background-color: ${(props) =>
-        props.color === "dark"
-          ? "var(--color-sidebar-background-dark-hover)"
-          : "var(--color-sidebar-background-light-hover)"};
+      color: ${({ color }) => `var(--color-text-${color}-hover)`};
+      background-color: ${({ color }) =>
+        `var(--color-sidebar-background-${color}-hover)`};
     }
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     &:active {
-      color: ${(props) =>
-        props.color === "dark"
-          ? "var(--color-text-dark-active)"
-          : "var(--color-text-light-active)"};
-      background-color: ${(props) =>
-        props.color === "dark"
-          ? "var(--color-sidebar-background-dark-active)"
-          : "var(--color-sidebar-background-light-active)"};
+      color: ${({ color }) => `var(--color-text-${color}-active)`};
+      background-color: ${({ color }) =>
+        `var(--color-sidebar-background-${color}-active)`};
     }
   }
   &.opened {
